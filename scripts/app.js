@@ -239,21 +239,6 @@ Aku ngomong gini karena mau confess, tapi juga mau ngomong soal realitanya. Pert
       elements.btnNo.addEventListener('click', handleNo);
     }
 
-    // Debug button - for testing navigation
-    const debugBtn = document.getElementById('debug-next');
-    if (debugBtn) {
-      debugBtn.addEventListener('click', function() {
-        console.log('Debug: Next Section clicked');
-        if (state.currentSection === 'landing') {
-          showConfession();
-        } else if (state.currentSection === 'confession') {
-          showResponse();
-        } else if (state.currentSection === 'response') {
-          showCelebration();
-        }
-      });
-    }
-
     // Retry button - close persuasion modal
     if (elements.btnRetry) {
       elements.btnRetry.addEventListener('click', closePersuasionModal);
