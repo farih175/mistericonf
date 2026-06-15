@@ -21,7 +21,7 @@
 
 tapi dihubungan dewasa itu aku ngerti dan sadar kalau cinta dan sayang itu ga cukup, dan sekarang kondisi ku ibaratnya masih jauh dari KKM kalau soal finansial realitanya, karena masih banyak kebutuhan dan tanggungan yang perlu ku jalanin, sedangkan kamu udah hampir siap, mungkin satu atau dua tahun lagi paling lama udah siap secara finansial dan mungkin kamu juga gasiap buat ldr.
 
-Aku ngomong gini karena mau confess, tapi juga mau ngomong soal realitanya. Aku nggak mau nahan kamu dengan ego-ku. Kalau kamu pada akhirnya memilih jalan yang lebih realistis dan sesuai sama timeline kamu, karena kamu bilang kan gamau buang buang waktu, jadi aku gamau buang waktu kamu juga, walaupun menurutku ini ngga sihh dan kamu udah banyak tuntutan dari lingkungan juga buat nikah kan, aku paham dan nggak apa-apa. Tapi, dari lubuk hatiku, aku bakal seneng banget kalau ternyata kamu mau bareng sama aku. udah aku mau ngungkapin itu ajaa tapi selalu gatau waktu yang tepat kapan jadi daripada terlambat, dan aku abis kena reels soal bahas per dilemaan ini, aku gamau egois juga`,
+Aku ngomong gini karena mau confess, tapi juga mau ngomong soal realitanya. Pertama aku gamau nahan ego soal nunda ngungkapin ini dan Aku nggak mau nahan kamu dengan ego-ku masuk di situasi ini. Kalau kamu pada akhirnya memilih jalan yang lebih realistis dan sesuai sama timeline kamu, karena kamu bilang kan gamau buang buang waktu dan Kamu udah banyak tuntutan dari lingkungan juga buat nikah kan, aku paham dan nggak apa-apa. Tapi, dari lubuk hatiku, aku bakal seneng banget kalau ternyata kamu mau bareng sama aku. udah aku mau ngungkapin itu ajaa tapi selalu gatau waktu yang tepat kapan jadi daripada terlambat.`,
     
     // Persuasion messages (Indonesian)
     persuasionMessages: [
