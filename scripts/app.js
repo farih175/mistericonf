@@ -63,6 +63,7 @@ Aku ngomong gini karena mau confess, tapi juga mau ngomong soal realitanya. Pert
     btnYes: document.getElementById('btn-yes'),
     btnNo: document.getElementById('btn-no'),
     btnContinue: document.getElementById('btn-continue'),
+    btnNext: document.getElementById('btn-next'),
     btnRetry: document.getElementById('btn-retry'),
     persuasionModal: document.getElementById('persuasion-modal'),
     bgMusic: document.getElementById('bg-music'),
@@ -243,6 +244,19 @@ Aku ngomong gini karena mau confess, tapi juga mau ngomong soal realitanya. Pert
     // Continue button - show response section
     if (elements.btnContinue) {
       elements.btnContinue.addEventListener('click', showResponse);
+    }
+
+    // Next button (fixed outside) - navigate sections
+    if (elements.btnNext) {
+      elements.btnNext.addEventListener('click', function() {
+        if (state.currentSection === 'landing') {
+          showConfession();
+        } else if (state.currentSection === 'confession') {
+          showResponse();
+        } else if (state.currentSection === 'response') {
+          showCelebration();
+        }
+      });
     }
 
     // Retry button - close persuasion modal
