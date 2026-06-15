@@ -203,6 +203,7 @@ Aku ngomong gini karena mau confess, tapi juga mau ngomong soal realitanya. Pert
     // Update greeting subtitle
     const greetingSubtitle = document.querySelector('.greeting-subtitle');
     if (greetingSubtitle) {
+      greetingSubtitle.textContent = 'Hai Salma Yumna Putri, keren kan aku masih inget nama lengkap kamuu 🥰';
       greetingSubtitle.textContent = `Ada sesuatu yang ingin ${confessor} sampaikan...`;
     }
 
