@@ -17,7 +17,7 @@
     confessor: 'Ian',
     
     // The full confession message
-    message: `gimana lucuu gaa? aku mau ngomong sesuatu kamu kan sempet bener soal nebak aku tuh cuek walaupun lewat zodiak itu, pasti kalau yang cuma sekilas kenal aku nilai aku kayak gitu cuek, judes ada yang bilang auranya beda, gajelas emang orang orang, padahal aku biasa ajaa, tapi kalau yang temen deket pasti bilangnya bertolak belakang sama itu, begitu pun sama kamu, didepan kamu tuhh aku gabisa cuek gitu, pengennya ngabarin, nanya dan segala macem, karena jujur aku suka sama kamu dan aku sayang sama kamuu, aku pengen selalu ada buat kamu sedih maupun seneng, jadi pendengar setia mu juga, aku gatau kalau kamu gimana, kamu juga mungkin udah sadar dari caraku ke kamu selama ini. walaupun skeptis, aku tuh gabisa kayak gini ke sembarangan orang
+    message: `gimana lucuu gaa? aku mau ngomong sesuatu kamu kan sempet bener soal nebak aku tuh cuek walaupun lewat zodiak itu, pasti kalau yang cuma sekilas kenal aku nilai aku kayak gitu cuek, judes, gajelas emang orang orang, padahal aku biasa ajaa, tapi kalau yang temen deket pasti bilangnya bertolak belakang sama itu, begitu pun sama kamu, didepan kamu tuhh aku gabisa cuek gitu, pengennya ngabarin, nanya dan segala macem, karena jujur aku suka sama kamu dan aku sayang sama kamuu, aku pengen selalu ada buat kamu sedih maupun seneng, jadi pendengar setia mu juga, aku gatau kalau kamu gimana, kamu juga mungkin udah sadar dari caraku ke kamu selama kita deket ini.
 
 tapi dihubungan dewasa itu aku ngerti dan sadar kalau cinta dan sayang itu ga cukup, dan sekarang kondisi ku ibaratnya masih jauh dari KKM kalau soal finansial realitanya, karena masih banyak kebutuhan dan tanggungan yang perlu ku jalanin, sedangkan kamu udah hampir siap, mungkin satu atau dua tahun lagi paling lama udah siap secara finansial dan mungkin kamu juga gasiap buat ldr.
 
@@ -40,7 +40,9 @@ Aku ngomong gini karena mau confess, tapi juga mau ngomong soal realitanya. Pert
   const state = {
     currentSection: 'landing',
     noAttempts: 0,
-    answered: false
+    answered: false,
+    answer: null,
+    timestamp: null
   };
 
   // ========================================
@@ -91,6 +93,9 @@ Aku ngomong gini karena mau confess, tapi juga mau ngomong soal realitanya. Pert
     
     // Setup and try to play background music
     setupBackgroundMusic();
+    
+    // Initialize cute ornaments if available
+    initCuteOrnaments();
   }
 
   /**
@@ -245,8 +250,10 @@ Aku ngomong gini karena mau confess, tapi juga mau ngomong soal realitanya. Pert
       
       if (state.currentSection !== 'landing') {
         e.preventDefault();
-        e.returnValue = 'Yakin mau pergi? Jawabanmu belum disimpan.';
-        return e.returnValue;
+        // Standard way to show confirmation dialog
+        const message = 'Yakin mau pergi? Jawabanmu belum disimpan.';
+        e.returnValue = message; // For older browsers
+        return message;
       }
     });
   }
@@ -255,6 +262,7 @@ Aku ngomong gini karena mau confess, tapi juga mau ngomong soal realitanya. Pert
    * Start background animations (floating hearts)
    */
   function startBackgroundAnimations() {
+    // Check for AnimationEngine
     if (window.AnimationEngine && elements.heartsContainer) {
       window.AnimationEngine.startFloatingHearts(elements.heartsContainer, {
         interval: 1000,
@@ -348,12 +356,18 @@ Aku ngomong gini karena mau confess, tapi juga mau ngomong soal realitanya. Pert
    * Handle "Yes" button click
    */
   function handleYes() {
-    if (state.answered) return;
+    console.log('handleYes called');
+    if (state.answered) {
+      console.log('Already answered, returning');
+      return;
+    }
     
+    console.log('Setting answered state to yes');
     state.answered = true;
     state.answer = 'yes';
     state.timestamp = new Date();
     
+    console.log('Proceeding to celebration');
     showCelebration();
   }
 
@@ -361,9 +375,14 @@ Aku ngomong gini karena mau confess, tapi juga mau ngomong soal realitanya. Pert
    * Handle "No" button click
    */
   function handleNo() {
-    if (state.answered) return;
+    console.log('handleNo called');
+    if (state.answered) {
+      console.log('Already answered, returning');
+      return;
+    }
 
     state.noAttempts++;
+    console.log(`No attempts: ${state.noAttempts}`);
     
     // Reposition the "No" button playfully
     repositionNoButton();
@@ -376,20 +395,29 @@ Aku ngomong gini karena mau confess, tapi juga mau ngomong soal realitanya. Pert
    * Show persuasion modal with rotating messages
    */
   function showPersuasionModal() {
-    if (!elements.persuasionModal) return;
+    console.log('showPersuasionModal called');
+    if (!elements.persuasionModal) {
+      console.log('Persuasion modal element not found');
+      return;
+    }
 
+    console.log('Persuasion modal element found');
     // Get the message element
     const messageEl = elements.persuasionModal.querySelector('.modal-message');
+    console.log('Message element:', messageEl);
     
     // Rotate through persuasion messages based on attempts
     const messageIndex = Math.min(state.noAttempts - 1, CONFIG.persuasionMessages.length - 1);
+    console.log(`Message index: ${messageIndex}, message: "${CONFIG.persuasionMessages[messageIndex]}"`);
     
     if (messageEl) {
       messageEl.textContent = CONFIG.persuasionMessages[messageIndex];
+      console.log('Message updated');
     }
 
     // Show modal with animation
     elements.persuasionModal.classList.add('active');
+    console.log('Modal class "active" added');
   }
 
   /**
@@ -479,6 +507,18 @@ Aku ngomong gini karena mau confess, tapi juga mau ngomong soal realitanya. Pert
     const formattedDate = now.toLocaleDateString('id-ID', options);
     
     elements.acceptanceDate.textContent = `Diterima pada: ${formattedDate}`;
+  }
+
+  /**
+   * Initialize cute ornaments for Requirement 6
+   */
+  function initCuteOrnaments() {
+    if (window.CuteOrnaments && document.body) {
+      window.CuteOrnaments.init(document.body, {
+        interval: 1500,
+        maxOrnaments: 10
+      });
+    }
   }
 
   // ========================================
