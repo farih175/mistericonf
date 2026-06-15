@@ -46,7 +46,7 @@ Aku ngomong gini karena mau confess, tapi juga mau ngomong soal realitanya. Pert
   };
 
   // ========================================
-  // DOM Elements
+  // DOM Elements 
   // ========================================
 
   const elements = {
