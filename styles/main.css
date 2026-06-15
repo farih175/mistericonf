@@ -330,6 +330,32 @@ body {
   background: var(--color-primary);
 }
 
+/* Continue Button - Inside message card */
+.btn-continue {
+  display: block;
+  width: 100%;
+  margin: var(--space-md) 0 0;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--gradient-button-yes);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-continue:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-continue:active {
+  transform: translateY(0);
+}
+
 .message-footer {
   padding: var(--space-lg);
   border-top: 1px solid var(--color-secondary-light);

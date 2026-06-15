@@ -62,6 +62,7 @@ Aku ngomong gini karena mau confess, tapi juga mau ngomong soal realitanya. Pert
     btnOpen: document.getElementById('btn-open'),
     btnYes: document.getElementById('btn-yes'),
     btnNo: document.getElementById('btn-no'),
+    btnContinue: document.getElementById('btn-continue'),
     btnRetry: document.getElementById('btn-retry'),
     persuasionModal: document.getElementById('persuasion-modal'),
     bgMusic: document.getElementById('bg-music'),
@@ -237,6 +238,11 @@ Aku ngomong gini karena mau confess, tapi juga mau ngomong soal realitanya. Pert
     // No button - show persuasion
     if (elements.btnNo) {
       elements.btnNo.addEventListener('click', handleNo);
+    }
+
+    // Continue button - show response section
+    if (elements.btnContinue) {
+      elements.btnContinue.addEventListener('click', showResponse);
     }
 
     // Retry button - close persuasion modal
