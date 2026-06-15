@@ -1,0 +1,17 @@
+{
+  "name": "confession-website",
+  "version": "1.0.0",
+  "description": "Romantic confession website for Ian to express feelings to Acell (Salma Yumna Putri)",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "serve": "npx serve ."
+  },
+  "devDependencies": {
+    "vitest": "^2.1.0",
+    "jsdom": "^25.0.0",
+    "@vitest/coverage-v8": "^2.1.0"
+  }
+}

@@ -1,0 +1,721 @@
+/**
+ * Main Styles for Confession Website
+ * Base styles, layout, and core component styling
+ * 
+ * Validates: Requirements 1.1 (mobile display 320px-768px), 1.3 (touch-friendly), 2.2 (elegant typography)
+ */
+
+/* ========================================
+   CSS Reset & Base Styles
+   ======================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--gradient-romantic);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   Music Control Button
+   ======================================== */
+
+.music-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.music-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+}
+
+.music-btn:active {
+  transform: scale(0.95);
+}
+
+.music-btn .music-icon {
+  font-size: 24px;
+  animation: pulse-music 2s ease-in-out infinite;
+}
+
+.music-btn.playing .music-icon {
+  animation: bounce-music 0.6s ease-in-out infinite;
+}
+
+.music-btn.muted .music-icon {
+  opacity: 0.5;
+  animation: none;
+}
+
+@keyframes pulse-music {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes bounce-music {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* ========================================
+   Hearts Background Container
+   Fixed container for floating hearts animation
+   ======================================== */
+
+.hearts-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.heart-particle {
+  position: absolute;
+  animation: floatHeart var(--speed-slow) ease-in-out infinite;
+}
+
+/* ========================================
+   Section Base Styles
+   Each section is a full-height screen with transitions
+   ======================================== */
+
+.section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--speed-medium) ease, visibility var(--speed-medium) ease;
+}
+
+.section.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ========================================
+   Content Container
+   Centered container optimized for mobile (max-width 480px)
+   ======================================== */
+
+.content-container {
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ========================================
+   Greeting Card Styles
+   Card with soft background, rounded corners, and shadows
+   ======================================== */
+
+.greeting-card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xxl);
+  text-align: center;
+  box-shadow: var(--shadow-medium);
+  animation: fadeIn var(--speed-medium) ease-out;
+}
+
+.heart-icon {
+  font-size: 48px;
+  margin-bottom: var(--space-md);
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.greeting-title {
+  font-family: var(--font-script);
+  font-size: var(--font-size-xxl);
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-primary);
+  line-height: 1.3;
+}
+
+.script-text {
+  display: block;
+  font-weight: 400;
+}
+
+.visitor-name {
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  display: block;
+  margin-top: var(--space-xs);
+}
+
+.greeting-subtitle {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-md);
+  margin-bottom: var(--space-xl);
+  line-height: 1.5;
+}
+
+/* ========================================
+   Button Base Styles
+   Touch-friendly buttons with minimum 48px touch targets
+   ======================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-xl);
+  border: none;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 48px;
+  min-width: 48px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:focus {
+  outline: 3px solid var(--color-primary-light);
+  outline-offset: 2px;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-open {
+  background: var(--gradient-button-yes);
+  color: white;
+  box-shadow: var(--shadow-soft);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.btn-open:hover,
+.btn-open:focus {
+  box-shadow: var(--shadow-glow);
+  transform: scale(1.02);
+}
+
+.btn-text {
+  display: inline-block;
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ========================================
+   Confession Section Styles
+   Message card with scrollable container
+   Requirements: 3.2 (elegant formatting), 3.3 (scrollable container)
+   ======================================== */
+
+.section-confession {
+  background: transparent;
+}
+
+.message-card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-medium);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 80vh;
+  animation: fadeIn var(--speed-medium) ease-out;
+}
+
+.message-header {
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--color-secondary-light);
+  background: linear-gradient(135deg, rgba(255, 182, 193, 0.2) 0%, rgba(255, 192, 203, 0.1) 100%);
+}
+
+.from-label {
+  font-family: var(--font-script);
+  font-size: var(--font-size-lg);
+  color: var(--color-primary-dark);
+  display: block;
+  text-align: center;
+}
+
+.message-body {
+  padding: var(--space-lg);
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  max-height: 50vh;
+  line-height: 1.8;
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Custom scrollbar for message body */
+.message-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.message-body::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-full);
+}
+
+.message-body::-webkit-scrollbar-thumb {
+  background: var(--color-primary-light);
+  border-radius: var(--radius-full);
+}
+
+.message-body::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+.message-footer {
+  padding: var(--space-lg);
+  border-top: 1px solid var(--color-secondary-light);
+  text-align: center;
+  background: linear-gradient(135deg, rgba(255, 182, 193, 0.1) 0%, rgba(255, 192, 203, 0.2) 100%);
+}
+
+.signature {
+  font-family: var(--font-script);
+  font-size: var(--font-size-xl);
+  color: var(--color-primary-dark);
+}
+
+/* ========================================
+   Response Section Styles
+   Centered layout with prominent "Mau" button
+   Requirements: 4.2 (Mau prominent), 4.3 (Tidak less prominent), 1.3 (touch-friendly)
+   ======================================== */
+
+.section-response {
+  background: transparent;
+}
+
+.response-card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xxl);
+  text-align: center;
+  box-shadow: var(--shadow-medium);
+  animation: fadeIn var(--speed-medium) ease-out;
+}
+
+.response-title {
+  font-family: var(--font-script);
+  font-size: var(--font-size-xl);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xl);
+  line-height: 1.4;
+}
+
+.response-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.btn-yes {
+  background: var(--gradient-button-yes);
+  color: white;
+  box-shadow: var(--shadow-medium);
+  padding: var(--space-lg) var(--space-xxl);
+  font-size: var(--font-size-lg);
+  min-width: 200px;
+  order: 1;
+}
+
+.btn-yes:hover,
+.btn-yes:focus {
+  box-shadow: var(--shadow-glow);
+  transform: scale(1.05);
+}
+
+.btn-icon {
+  font-size: 1.2em;
+}
+
+.btn-no {
+  background: transparent;
+  color: var(--color-text-secondary);
+  border: 2px solid var(--color-text-light);
+  font-size: var(--font-size-sm);
+  padding: var(--space-sm) var(--space-lg);
+  min-width: 120px;
+  order: 2;
+  opacity: 0.8;
+}
+
+.btn-no:hover,
+.btn-no:focus {
+  border-color: var(--color-primary-light);
+  color: var(--color-primary);
+  opacity: 1;
+}
+
+/* ========================================
+   Celebration Section Styles
+   Gradient background with particle effects
+   Requirements: 5.1 (celebration animation), 5.2 (thank you message)
+   ======================================== */
+
+.section-celebration {
+  background: var(--gradient-celebration);
+  position: relative;
+  overflow: hidden;
+}
+
+.celebration-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: var(--space-xxl);
+}
+
+.celebration-hearts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.celebration-message {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xxl);
+  box-shadow: var(--shadow-medium);
+  animation: fadeIn var(--speed-medium) ease-out;
+}
+
+.celebration-title {
+  font-family: var(--font-script);
+  font-size: 3rem;
+  color: var(--color-primary-dark);
+  margin-bottom: var(--space-md);
+  line-height: 1.2;
+}
+
+.celebration-text {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+  line-height: 1.6;
+}
+
+.celebration-date {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-style: italic;
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-secondary-light);
+}
+
+/* ========================================
+   Persuasion Modal Styles
+   Semi-transparent overlay with card-like modal
+   Requirements: 4.4 (persuasive message)
+   ======================================== */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--speed-fast) ease, visibility var(--speed-fast) ease;
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  position: relative;
+  z-index: 1;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xxl);
+  max-width: 320px;
+  width: 90%;
+  text-align: center;
+  box-shadow: var(--shadow-medium);
+  animation: fadeIn var(--speed-fast) ease-out;
+}
+
+.modal-title {
+  font-family: var(--font-script);
+  font-size: var(--font-size-xl);
+  color: var(--color-primary-dark);
+  margin-bottom: var(--space-md);
+}
+
+.modal-message {
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xl);
+  line-height: 1.6;
+}
+
+.btn-retry {
+  background: var(--gradient-button-yes);
+  color: white;
+  box-shadow: var(--shadow-soft);
+  width: 100%;
+}
+
+.btn-retry:hover,
+.btn-retry:focus {
+  box-shadow: var(--shadow-glow);
+  transform: scale(1.02);
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ========================================
+   Responsive Adjustments
+   Mobile-first approach (320px - 768px)
+   Requirements: 1.1 (320px-768px), 1.2 (orientation support)
+   ======================================== */
+
+/* Small screens (320px - 360px) */
+@media screen and (max-width: 360px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .greeting-card,
+  .response-card,
+  .celebration-message,
+  .modal-content {
+    padding: var(--space-lg);
+  }
+  
+  .greeting-title,
+  .celebration-title {
+    font-size: 1.75rem;
+  }
+  
+  .message-body {
+    font-size: var(--font-size-sm);
+    max-height: 45vh;
+  }
+  
+  .btn-yes {
+    padding: var(--space-md) var(--space-xl);
+    min-width: 180px;
+  }
+  
+  .celebration-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Medium small screens (361px - 480px) */
+@media screen and (min-width: 361px) and (max-width: 480px) {
+  .message-body {
+    max-height: 55vh;
+  }
+}
+
+/* Tablets and small desktops (481px - 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .content-container {
+    max-width: 480px;
+  }
+  
+  .message-card {
+    max-height: 70vh;
+  }
+  
+  .message-body {
+    max-height: 45vh;
+  }
+}
+
+/* Large screens (768px+) */
+@media screen and (min-width: 768px) {
+  .content-container {
+    max-width: 480px;
+  }
+  
+  .response-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .btn-yes {
+    order: 1;
+  }
+  
+  .btn-no {
+    order: 2;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+  .section {
+    min-height: auto;
+    padding: var(--space-md);
+  }
+  
+  .greeting-card,
+  .response-card,
+  .celebration-message {
+    padding: var(--space-lg);
+  }
+  
+  .message-card {
+    max-height: 90vh;
+  }
+  
+  .message-body {
+    max-height: 40vh;
+  }
+  
+  .heart-icon {
+    font-size: 36px;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .greeting-title,
+  .response-title {
+    margin-bottom: var(--space-sm);
+  }
+  
+  .celebration-title {
+    font-size: 2rem;
+  }
+}
+
+/* High DPI screens (retina displays) */
+@media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi) {
+  .greeting-card,
+  .message-card,
+  .response-card,
+  .celebration-message,
+  .modal-content {
+    box-shadow: var(--shadow-medium), 0 0 1px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .heart-icon,
+  .btn-open,
+  .btn-yes,
+  .btn-no,
+  .btn-retry {
+    animation: none;
+  }
+  
+  .section,
+  .modal,
+  .greeting-card,
+  .message-card,
+  .response-card,
+  .celebration-message,
+  .modal-content {
+    transition: none;
+  }
+}

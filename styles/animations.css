@@ -1,0 +1,212 @@
+/* ========================================
+   Animation Keyframes - Confession Website
+   Romantic animations for hearts, petals, sparkles, and UI elements
+   ======================================== */
+
+/* Floating Hearts Animation
+   Hearts float upward from bottom of screen with rotation and scaling
+   Used for: Background floating hearts effect
+   Requirements: 2.3 (floating hearts animation)
+*/
+@keyframes floatHeart {
+  0% {
+    transform: translateY(100vh) rotate(0deg) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(90vh) rotate(45deg) scale(1);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(360deg) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Falling Petals Animation
+   Petals fall from top with swaying motion and rotation
+   Used for: Romantic falling petals effect during celebration
+   Requirements: 3.4 (subtle romantic animations)
+*/
+@keyframes fallingPetal {
+  0% {
+    transform: translateY(-10vh) rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(50vh) rotate(180deg) translateX(30px);
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg) translateX(-30px);
+    opacity: 0;
+  }
+}
+
+/* Sparkle Animation
+   Sparkles appear and disappear with scaling effect
+   Used for: Magical sparkle effects on celebration
+   Requirements: 3.4 (subtle romantic animations), 5.1 (celebration animation)
+*/
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Pulse Animation for Button
+   Button gently pulses with glow effect to attract attention
+   Used for: "Buka" button on landing section
+   Requirements: 2.4 (Buka button), 3.4 (subtle romantic animations)
+*/
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 105, 180, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px 10px rgba(255, 105, 180, 0);
+  }
+}
+
+/* Heartbeat Animation
+   Simulates a realistic heartbeat with double-pulse effect
+   Used for: Heart icon in landing section
+   Requirements: 2.1 (romantic color palette), 2.3 (floating hearts animation)
+*/
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.1);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+/* Fade In Animation
+   Elements fade in with slight upward movement
+   Used for: Section transitions and card appearances
+   Requirements: 3.1 (smooth transition)
+*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Explode Animation
+   Particles explode outward from center with fading
+   Used for: Celebration particle explosion when "Mau" is clicked
+   Requirements: 5.1 (celebration animation)
+*/
+@keyframes explode {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--explode-x, 100px), var(--explode-y, -100px)) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Explode Heart Animation
+   Hearts explode outward from center for celebration effect
+   Used for: Celebration hearts explosion when "Mau" is clicked
+   Requirements: 5.1 (celebration animation)
+*/
+@keyframes explodeHeart {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(
+      calc(-50% + var(--end-x, 50%) - 50%),
+      calc(-50% + var(--end-y, 50%) - 50%)
+    ) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Modal Fade In
+   Modal appears with backdrop fade
+   Used for: Persuasion modal
+   Requirements: 4.4 (persuasion messages)
+*/
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalContentSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Falling Petal Element
+   Individual petal element with falling animation
+   Requirements: 5.1 (celebration animation)
+*/
+.falling-petal {
+  position: absolute;
+  animation: fallingPetal 4s ease-in-out forwards;
+  pointer-events: none;
+}
+
+/* Celebration Heart Element
+   Individual heart element for celebration explosion
+   Requirements: 5.1 (celebration animation)
+*/
+.celebration-heart {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Celebration Sparkle Element
+   Individual sparkle element for celebration
+   Requirements: 5.1 (celebration animation)
+*/
+.celebration-sparkle {
+  position: absolute;
+  pointer-events: none;
+  animation: sparkle 0.6s ease-in-out forwards;
+}

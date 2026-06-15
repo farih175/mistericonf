@@ -1,0 +1,89 @@
+/**
+ * Theme Variables for Confession Website
+ * Pink/Rose Color Palette - Romantic and Feminine Design
+ * 
+ * Validates: Requirements 2.1 (romantic color palette), 6.2 (soft rounded design)
+ */
+
+:root {
+  /* ========================================
+   * Primary Colors - Classic Romantic Pink
+   * ======================================== */
+  --color-primary: #FF69B4;          /* Hot Pink */
+  --color-primary-light: #FFB6C1;    /* Light Pink */
+  --color-primary-dark: #FF1493;     /* Deep Pink */
+
+  /* ========================================
+   * Secondary Colors - Soft Rose
+   * ======================================== */
+  --color-secondary: #FFC0CB;        /* Pink */
+  --color-secondary-light: #FFE4E1;  /* Misty Rose */
+  --color-secondary-dark: #DB7093;   /* Pale Violet Red */
+
+  /* ========================================
+   * Background Colors - Soft & Feminine
+   * ======================================== */
+  --color-bg-primary: #FFF0F5;       /* Lavender Blush */
+  --color-bg-secondary: #FFF5EE;     /* Seashell */
+  --color-bg-card: rgba(255, 255, 255, 0.9);
+
+  /* ========================================
+   * Text Colors
+   * ======================================== */
+  --color-text-primary: #8B4557;     /* Dusty Rose */
+  --color-text-secondary: #A0522D;   /* Sienna (softer) */
+  --color-text-light: #D8A0A0;       /* Light rose for borders */
+
+  /* ========================================
+   * Gradients
+   * ======================================== */
+  --gradient-romantic: linear-gradient(135deg, #FFB6C1 0%, #FFC0CB 50%, #FFE4E1 100%);
+  --gradient-celebration: linear-gradient(180deg, #FF69B4 0%, #FF1493 100%);
+  --gradient-button-yes: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
+
+  /* ========================================
+   * Typography
+   * ======================================== */
+  --font-script: 'Dancing Script', cursive;
+  --font-body: 'Nunito', sans-serif;
+
+  /* Font Sizes */
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xxl: 2.5rem;
+
+  /* ========================================
+   * Animation Speeds
+   * ======================================== */
+  --speed-slow: 3s;
+  --speed-medium: 1.5s;
+  --speed-fast: 0.8s;
+
+  /* ========================================
+   * Shadows
+   * ======================================== */
+  --shadow-soft: 0 4px 20px rgba(255, 105, 180, 0.2);
+  --shadow-medium: 0 8px 30px rgba(255, 105, 180, 0.3);
+  --shadow-glow: 0 0 20px rgba(255, 105, 180, 0.4);
+
+  /* ========================================
+   * Spacing
+   * ======================================== */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-xxl: 3rem;
+
+  /* ========================================
+   * Border Radius - Soft, Rounded Design
+   * ======================================== */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+}

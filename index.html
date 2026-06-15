@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Untuk Acell 💕</title>
+  
+  <!-- Google Fonts: Romantic Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/theme.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/animations.css">
+  
+  <!-- PWA Support -->
+  <meta name="theme-color" content="#FF69B4">
+  
+  <!-- Fallback for no JS -->
+  <noscript>
+    <style>
+      .js-required { display: none; }
+      .no-js-message { display: block; padding: 2rem; text-align: center; }
+    </style>
+  </noscript>
+</head>
+<body>
+  <!-- Background Music -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="assets/Backstreet Boys - Shape Of My Heart.mp3" type="audio/mpeg">
+  </audio>
+  
+  <!-- Music Control Button -->
+  <button id="music-toggle" class="music-btn" type="button" aria-label="Toggle music">
+    <span class="music-icon">🎵</span>
+  </button>
+  
+  <!-- Floating Hearts Background -->
+  <div id="hearts-container" class="hearts-bg" aria-hidden="true"></div>
+  
+  <!-- Landing Section -->
+  <section id="landing" class="section section-landing active">
+    <div class="content-container">
+      <div class="greeting-card">
+        <div class="heart-icon" aria-hidden="true">💕</div>
+        <h1 class="greeting-title">
+          <span class="script-text">Hai,</span>
+          <span id="visitor-name" class="visitor-name">Acell</span>
+        </h1>
+        <p class="greeting-subtitle">Ada sesuatu yang ingin Ian sampaikan...</p>
+        <button id="btn-open" class="btn btn-open" type="button">
+          <span class="btn-text">Buka 💌</span>
+        </button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Confession Section -->
+  <section id="confession" class="section section-confession">
+    <div class="content-container">
+      <div class="message-card">
+        <div class="message-header">
+          <span class="from-label">Dari hati Ian, untuk Acell</span>
+        </div>
+        <div class="message-body" id="message-content">
+          <!-- Message will be injected here -->
+        </div>
+        <div class="message-footer">
+          <span class="signature">💝 Ian</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Response Section -->
+  <section id="response" class="section section-response">
+    <div class="content-container">
+      <div class="response-card">
+        <h2 class="response-title">Jadi, bagaimana jawabanmu? 🥺</h2>
+        <div class="response-buttons">
+          <button id="btn-yes" class="btn btn-yes" type="button">
+            <span class="btn-icon">💕</span>
+            <span class="btn-text">Mau</span>
+          </button>
+          <button id="btn-no" class="btn btn-no" type="button">
+            <span class="btn-text">Tidak</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Celebration Section -->
+  <section id="celebration" class="section section-celebration">
+    <div class="celebration-content">
+      <div class="celebration-hearts" id="celebration-hearts"></div>
+      <div class="celebration-message">
+        <h2 class="celebration-title">Yeay! 💕✨</h2>
+        <p class="celebration-text">Terima kasih, Acell!</p>
+        <p class="celebration-date" id="acceptance-date"></p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Persuasion Modal -->
+  <div id="persuasion-modal" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h3 class="modal-title">Yakin nih? 🥺</h3>
+      <p class="modal-message">Coba dipikirkan lagi yuk...</p>
+      <button id="btn-retry" class="btn btn-retry" type="button">
+        <span class="btn-text">Oke, saya pikirkan lagi</span>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Scripts -->
+  <script src="scripts/personalization.js"></script>
+  <script src="scripts/animations.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+</html>
