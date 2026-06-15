@@ -11,7 +11,7 @@
 
   const CONFIG = {
     visitor: {
-      nickname: 'Acell',
+      nickname: 'Aceeeeelllll',
       fullName: 'Salma Yumna Putri'
     },
     confessor: 'Ian',
