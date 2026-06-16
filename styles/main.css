@@ -773,3 +773,58 @@ body {
 .btn-next:active {
   transform: translateY(0);
 }
+
+/* Greeting Hint - Cute text */
+.greeting-hint {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin-top: var(--space-sm);
+  opacity: 0.7;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Wiggle animation for buttons */
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+}
+
+/* Make Yes button more prominent and cute */
+.btn-yes {
+  animation: pulse 2s ease-in-out infinite, wiggle 3s ease-in-out infinite;
+}
+
+/* Fun emoji pop animation */
+@keyframes pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.emoji-pop {
+  animation: pop 0.3s ease-out forwards;
+}

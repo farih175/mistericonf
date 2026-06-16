@@ -23,13 +23,16 @@ tapi dihubungan dewasa itu aku ngerti dan sadar kalau cinta dan sayang itu ga cu
 
 Aku ngomong gini karena mau confess, tapi juga mau ngomong soal realitanya. Pertama aku gamau nahan ego soal nunda ngungkapin ini dan Aku nggak mau nahan kamu dengan ego-ku masuk di situasi ini. Kalau kamu pada akhirnya memilih jalan yang lebih realistis dan sesuai sama timeline kamu, karena kamu bilang kan gamau buang buang waktu dan Kamu udah banyak tuntutan dari lingkungan juga buat nikah kan, aku paham dan nggak apa-apa. Tapi, dari lubuk hatiku, aku bakal seneng banget kalau ternyata kamu mau bareng sama aku. udah aku mau ngungkapin itu ajaa tapi selalu gatau waktu yang tepat kapan jadi daripada terlambat.`,
     
-    // Persuasion messages (Indonesian)
+    // Persuasion messages (Indonesian) - MORE CUTE & FUNNY!
     persuasionMessages: [
-      'Yakin nih? 🥺',
-      'Benar-benar yakin? 💔',
-      'Coba dipikirkan lagi yuk... 🙏',
-      'Jangan buru-buru memutuskan... 💕',
-      'Aku masih menunggu jawaban yang baik lho... 🥹'
+      'Eits, beneran nih? 🥺 Jangan main-main...',
+      'Weh, tunggu dulu! 🙀 Pikir lagi yuk...',
+      'Hmm, masih ragu ya? 🤔 Aku bakal sedih lho...',
+      'Yakin banget? 😢 Aku kan lucu dan baik hati...',
+      'Terakhir nih! 🙏 Aku tunggu jawaban yang baik ya...',
+      'Oke deh, aku pasrah... 😔 Tapi aku tetap suka kamu!',
+      'Wkwk just kidding! 😂 Aku masih menunggu jawaban kamu...',
+      'Beneran nih terakhir! 😅 Klik "Mau" dong, pleaseee... �'
     ]
   };
 
@@ -547,5 +550,36 @@ Aku ngomong gini karena mau confess, tapi juga mau ngomong soal realitanya. Pert
   // ========================================
 
   document.addEventListener('DOMContentLoaded', init);
+
+  // ========================================
+  // FUN FEATURES - Make it more cute & funny!
+  // ========================================
+
+  /**
+   * Show random cute emoji popup
+   */
+  function showRandomEmoji() {
+    const emojis = ['💕', '💖', '💗', '💝', '💘', '🥰', '😍', '✨', '🌟', '💫', '🌸', '🌺', '🌷', '🌹', '🧸', '🐱', '🐶', '🐰'];
+    const emoji = document.createElement('div');
+    emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    emoji.style.cssText = `
+      position: fixed;
+      font-size: ${30 + Math.random() * 20}px;
+      left: ${Math.random() * 80 + 10}%;
+      top: ${Math.random() * 80 + 10}%;
+      pointer-events: none;
+      z-index: 9999;
+      animation: pop 0.5s ease-out forwards;
+    `;
+    document.body.appendChild(emoji);
+    setTimeout(() => emoji.remove(), 500);
+  }
+
+  // Add click listener for emoji popups
+  document.addEventListener('click', function(e) {
+    if (Math.random() > 0.5) { // 50% chance
+      showRandomEmoji();
+    }
+  });
 
 })();
