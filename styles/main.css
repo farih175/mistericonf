@@ -828,3 +828,109 @@ body {
 .emoji-pop {
   animation: pop 0.3s ease-out forwards;
 }
+
+/* ========================================
+   ENHANCED CELEBRATION STYLES
+   More festive and exciting!
+   ======================================== */
+
+.celebration-subtitle {
+  font-size: var(--font-size-lg);
+  color: #FF1493;
+  margin-bottom: var(--space-sm);
+  font-weight: 600;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.celebration-text2 {
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  margin-top: var(--space-sm);
+  font-style: italic;
+}
+
+.celebration-text3 {
+  font-size: var(--font-size-xl);
+  color: #FF69B4;
+  margin-top: var(--space-md);
+  font-weight: 700;
+  animation: heartbeat 1s ease-in-out infinite;
+}
+
+.celebration-emojis {
+  margin-top: var(--space-lg);
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.emoji-bounce {
+  display: inline-block;
+  animation: bounce-emoji 1s ease-in-out infinite;
+}
+
+.emoji-bounce:nth-child(1) { animation-delay: 0s; }
+.emoji-bounce:nth-child(2) { animation-delay: 0.1s; }
+.emoji-bounce:nth-child(3) { animation-delay: 0.2s; }
+.emoji-bounce:nth-child(4) { animation-delay: 0.3s; }
+.emoji-bounce:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes bounce-emoji {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-15px) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+/* Confetti animation */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  top: -20px;
+  z-index: 9999;
+  animation: confetti-fall 3s linear forwards;
+}
+
+/* Firework explosion */
+@keyframes firework {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.firework {
+  position: fixed;
+  font-size: 40px;
+  animation: firework 1s ease-out forwards;
+  z-index: 9999;
+}

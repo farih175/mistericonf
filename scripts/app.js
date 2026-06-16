@@ -491,23 +491,110 @@ Aku ngomong gini karena mau confess, tapi juga mau ngomong soal realitanya. Pert
   // ========================================
 
   /**
-   * Start celebration animations
+   * Start celebration animations - MORE FESTIVE!
    */
   function startCelebrationAnimations() {
+    // Start hearts explosion
     if (window.AnimationEngine && elements.celebrationHearts) {
-      // Start celebration with hearts explosion and petals
       window.AnimationEngine.startCelebration(elements.celebrationHearts, {
-        duration: 5000
+        duration: 10000 // 10 seconds!
       });
     }
 
-    // Also add floating hearts to celebration section
+    // Add floating hearts to celebration section
     if (window.AnimationEngine && elements.celebration) {
       window.AnimationEngine.startFloatingHearts(elements.celebration, {
-        interval: 600,
-        maxHearts: 20
+        interval: 400, // Faster!
+        maxHearts: 30 // More hearts!
       });
     }
+
+    // START CONFETTI!
+    startConfetti();
+
+    // START FIREWORKS!
+    startFireworks();
+
+    // Start cute ornaments too
+    if (window.CuteOrnaments && document.body) {
+      window.CuteOrnaments.startFloatingOrnaments(document.body, {
+        interval: 800,
+        maxOrnaments: 15
+      });
+    }
+  }
+
+  /**
+   * Create confetti explosion
+   */
+  function startConfetti() {
+    const colors = ['#FF69B4', '#FF1493', '#FFB6C1', '#FFC0CB', '#FFD700', '#FF6347', '#00CED1', '#9370DB'];
+    const confettiCount = 100;
+
+    for (let i = 0; i < confettiCount; i++) {
+      setTimeout(() => {
+        createConfettiPiece(colors);
+      }, i * 30); // Stagger the confetti
+    }
+
+    // Keep creating confetti for 5 seconds
+    const confettiInterval = setInterval(() => {
+      for (let i = 0; i < 5; i++) {
+        createConfettiPiece(colors);
+      }
+    }, 100);
+
+    setTimeout(() => clearInterval(confettiInterval), 10000);
+  }
+
+  /**
+   * Create a single confetti piece
+   */
+  function createConfettiPiece(colors) {
+    const confetti = document.createElement('div');
+    confetti.className = 'confetti';
+    confetti.style.left = Math.random() * 100 + '%';
+    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    confetti.style.animationDuration = (2 + Math.random() * 2) + 's';
+    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+    document.body.appendChild(confetti);
+
+    setTimeout(() => confetti.remove(), 5000);
+  }
+
+  /**
+   * Create fireworks explosion
+   */
+  function startFireworks() {
+    const fireworkEmojis = ['🎆', '🎇', '✨', '💫', '⭐', '🌟'];
+
+    // Create initial fireworks burst
+    for (let i = 0; i < 10; i++) {
+      setTimeout(() => {
+        createFirework(fireworkEmojis);
+      }, i * 200);
+    }
+
+    // Keep creating fireworks
+    const fireworkInterval = setInterval(() => {
+      createFirework(fireworkEmojis);
+    }, 500);
+
+    setTimeout(() => clearInterval(fireworkInterval), 10000);
+  }
+
+  /**
+   * Create a single firework
+   */
+  function createFirework(emojis) {
+    const firework = document.createElement('div');
+    firework.className = 'firework';
+    firework.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    firework.style.left = (20 + Math.random() * 60) + '%';
+    firework.style.top = (20 + Math.random() * 60) + '%';
+    document.body.appendChild(firework);
+
+    setTimeout(() => firework.remove(), 1000);
   }
 
   /**
